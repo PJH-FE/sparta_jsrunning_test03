@@ -39,4 +39,4 @@ async function findFirstCompletedTask() {
     console.timeEnd("Race");
 }
 
-console.log(findFirstCompletedTask());
+findFirstCompletedTask();
