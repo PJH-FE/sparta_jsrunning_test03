@@ -27,15 +27,16 @@ function taskC() {
 
 // 가장 먼저 완료된 작업을 찾아서 반환되는 값을 출력하세요.
 
-async function findFirstCompletedTask() {
+function findFirstCompletedTask() {
     console.time("Race");
-    try {
-        await Promise.race([taskA(), taskB(), taskC()]).then((result) => {
+
+    Promise.race([taskA(), taskB(), taskC()])
+        .then((result) => {
             console.log(result);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
         });
-    } catch (error) {
-        console.error("Error:", error);
-    }
     console.timeEnd("Race");
 }
 
