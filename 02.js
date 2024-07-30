@@ -5,10 +5,13 @@ const API_URL = "https://open.api.com/v1/data";
 const WRONG_URL = "https://open.api.com/v1/wrong";
 
 async function getData(url) {
-    const isUrl = await url === API_URL ? '성공' : '실패'
+    // 3초 뒤 url 이 API_URL과 같다면 성공으로 처리를, 아닐 경우 실패로 처리를 하게 해주세요
+    let isUrl = await url === API_URL ? "성공" : "실패";
+
     setTimeout(() => {
         console.log(isUrl)
-    }, 3000)
+    },3000)
 }
 
-getData("https://open.api.com/v1/data2")
+getData(API_URL);
+getData(WRONG_URL);

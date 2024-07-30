@@ -42,7 +42,7 @@ async function runTasksSequential() {
     }
     console.timeEnd("Sequential");
 
-    // 6초 , 각 함수가 실행이 완료되면 다음 함수가 실행되기 때문
+    // 6초, 모든 함수가 순차적으로 진행되기 때문 1초 + 2초 + 3초
 }
 
 async function runTasksParallel() {
@@ -55,7 +55,7 @@ async function runTasksParallel() {
         console.error("Error:", error);
     }
     console.timeEnd("Parallel");
-    // 3초 , 함수들이 한 번에 실행되고, 가장 오래걸린 함수가 종료 될 때 동시에 출력되어서
+    // 3초, 함수가 동시에 진행되고, 가장 마지막에 종료된 함수의 시간에 맞춰서 끝나기 때문
 }
 
 // 함수 호출
