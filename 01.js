@@ -9,11 +9,13 @@ const WRONG_URL = "https://open.api.com/v1/wrong";
 
 function getData(url) {
     const isUrl = new Promise((resolve, reject) => {
-        if (url === API_URL) {
-            setTimeout(() => resolve("성공"), 3000);
-        } else {
-            setTimeout(() => reject("실패"), 3000);
-        }
+        setTimeout(() => {
+            if (url === API_URL) {
+                resolve("성공");
+            } else {
+                reject("실패");
+            }
+        },3000)
     });
 
     return isUrl;
@@ -26,6 +28,15 @@ getData("https://open.api.com/v1/data")
     .catch((reject) => {
         console.error(reject);
     });
-// ...
+
+    
+getData("https://open.api.com/v1/wrong")
+.then((resolve) => {
+    console.log(resolve);
+})
+.catch((reject) => {
+    console.error(reject);
+});
+
 
 // getData(API_URL), getData(WRONG_URL) 각각 성공과 실패에 대한 처리를 코드작성해주세요.
